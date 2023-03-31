@@ -7,20 +7,32 @@ public class ReajusteId implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer holerite;
+    private Integer id;
+    private Holerite holerite;
 
-    public ReajusteId(){super();}
-
-    public ReajusteId(Integer holerite) {
+    public ReajusteId() {
         super();
+    }
+
+    public ReajusteId(Integer id, Holerite holerite) {
+        this.id = id;
         this.holerite = holerite;
     }
 
-    public Integer getHolerite() {
+    public Integer getId() {
+        return id;
+    }
+
+    public ReajusteId setId(Integer id) {
+        this.id = id;
+        return this;
+    }
+
+    public Holerite getHolerite() {
         return holerite;
     }
 
-    public ReajusteId setHolerite(Integer holerite) {
+    public ReajusteId setHolerite(Holerite holerite) {
         this.holerite = holerite;
         return this;
     }
@@ -30,11 +42,11 @@ public class ReajusteId implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ReajusteId that = (ReajusteId) o;
-        return Objects.equals(holerite, that.holerite);
+        return Objects.equals(id, that.id) && Objects.equals(holerite, that.holerite);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(holerite);
+        return Objects.hash(id, holerite);
     }
 }

@@ -16,9 +16,6 @@ public class Holerite {
     @Column(name = "Id_Holerite")
     private Integer id;
 
-    @OneToMany(mappedBy = "holerite")
-    private List<Reajuste> reajustes;
-
     @Column(name = "Id_Funcionario")
     private Integer idFuncionario;
 
@@ -44,15 +41,6 @@ public class Holerite {
 
     public Holerite setId(Integer id) {
         this.id = id;
-        return this;
-    }
-
-    public List<Reajuste> getReajustes() {
-        return reajustes;
-    }
-
-    public Holerite setReajustes(List<Reajuste> reajustes) {
-        this.reajustes = reajustes;
         return this;
     }
 

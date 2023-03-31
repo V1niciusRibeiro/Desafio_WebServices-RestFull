@@ -21,7 +21,7 @@ public class ReajusteResource {
         return reajusteRepository.findAll();
     }
 
-    @GetMapping("{id}{holerite}")
+    @GetMapping("{id}/{holerite}")
     public Reajuste buscarporchave(@PathVariable Integer id, @PathVariable Holerite holerite){
         return reajusteRepository.findByIdAndHolerite(id, holerite);
     }
@@ -47,14 +47,14 @@ public class ReajusteResource {
         return reajusteRepository.save(reajuste);
     }
 
-    @PutMapping("{id}{holerite}")
+    @PutMapping("{id}/{holerite}")
     public Reajuste atuliza(@RequestBody Reajuste reajuste, @PathVariable Integer id, @PathVariable Holerite holerite){
         reajuste.setId(id);
         reajuste.setHolerite(holerite);
         return reajusteRepository.save(reajuste);
     }
 
-    @DeleteMapping("{id}{holerite}")
+    @DeleteMapping("{id}/{holerite}")
     public void excluir(@PathVariable Integer id, @PathVariable Holerite holerite){
         Reajuste reajuste = buscarporchave(id, holerite);
         reajusteRepository.delete(reajuste);

@@ -17,8 +17,6 @@ public class HoleriteResource {
     @Autowired
     private HoleriteRepository holeriteRepository;
 
-    private ReajusteResource reajusteResource;
-
     @GetMapping
     public List<Holerite> listar(){
         return holeriteRepository.findAll();
@@ -65,12 +63,6 @@ public class HoleriteResource {
 
     @DeleteMapping("{id}")
     public void excluir(@PathVariable Integer id){
-        Holerite holerite = holeriteRepository.findById(id).get();
-        List<Reajuste> reajustes = reajusteResource.buscarporholerite(holerite);
-        for (Reajuste rejuste: reajustes
-             ) {
-            reajusteResource.excluir(rejuste.getId(),rejuste.getHolerite());
-        }
         holeriteRepository.deleteById(id);
     }
 
