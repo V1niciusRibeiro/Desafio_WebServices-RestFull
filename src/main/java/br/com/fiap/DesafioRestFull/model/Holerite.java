@@ -7,7 +7,7 @@ import java.util.Calendar;
 import java.util.List;
 
 @Entity
-@Table(name = "TB_HOLERITTE")
+@Table(name = "TB_HOLERITE")
 public class Holerite {
 
     @Id
