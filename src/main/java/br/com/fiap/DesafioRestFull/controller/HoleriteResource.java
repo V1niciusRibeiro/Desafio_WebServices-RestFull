@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Calendar;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("holerite")
@@ -44,12 +43,12 @@ public class HoleriteResource {
     public List<Holerite> buscaporfuncionaroperiodo(@RequestParam Integer id,
                                                     @RequestParam Calendar start,
                                                     @RequestParam Calendar end){
-        return holeriteRepository.findByDataGreaterThanEqualAndDataLessThanEqualAndIdFuncionaro(start,end,id);
+        return holeriteRepository.findByDataGreaterThanEqualAndDataLessThanEqualAndIdFuncionario(start,end,id);
     }
 
     @GetMapping("funcionario")
     public List<Holerite> buscaporfuncionaro(@RequestParam Integer id){
-       return holeriteRepository.findByIdFuncionaro(id);
+       return holeriteRepository.findByIdFuncionario(id);
     }
 
     @ResponseStatus(code = HttpStatus.CREATED)

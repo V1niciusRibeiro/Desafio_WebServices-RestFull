@@ -20,7 +20,7 @@ public class Holerite {
     private List<Reajuste> reajustes;
 
     @Column(name = "Id_Funcionario")
-    private Integer idFuncionaro;
+    private Integer idFuncionario;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
@@ -32,9 +32,9 @@ public class Holerite {
 
     public Holerite(){}
     
-    public Holerite(Integer id, Integer idFuncionaro, Calendar data) {
+    public Holerite(Integer id, Integer idFuncionario, Calendar data) {
         this.id = id;
-        this.idFuncionaro = idFuncionaro;
+        this.idFuncionario = idFuncionario;
         this.data = data;
     }
 
@@ -57,11 +57,11 @@ public class Holerite {
     }
 
     public Integer getIdFuncionaro() {
-        return idFuncionaro;
+        return idFuncionario;
     }
 
-    public Holerite setIdFuncionaro(Integer idFuncionaro) {
-        this.idFuncionaro = idFuncionaro;
+    public Holerite setIdFuncionaro(Integer idFuncionario) {
+        this.idFuncionario = idFuncionario;
         return this;
     }
 
