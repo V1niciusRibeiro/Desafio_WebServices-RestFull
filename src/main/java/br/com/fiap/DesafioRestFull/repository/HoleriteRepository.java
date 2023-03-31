@@ -10,10 +10,10 @@ import java.util.List;
 @Repository
 public interface HoleriteRepository extends JpaRepository<Holerite, Integer> {
 
-    List<Holerite> findByIdFuncionaro(Integer idFuncionario);
+    List<Holerite> findByIdFuncionario(Integer idFuncionario);
     List<Holerite> findByData(Calendar Data);
     List<Holerite> findByDataGreaterThanEqualAndDataLessThanEqual(Calendar Start, Calendar End);
-    List<Holerite> findByDataGreaterThanEqualAndDataLessThanEqualAndIdFuncionaro(Calendar Start,
+    List<Holerite> findByDataGreaterThanEqualAndDataLessThanEqualAndIdFuncionario(Calendar Start,
                                                                                  Calendar End,
-                                                                                 Integer IdFuncionaro);
+                                                                                 Integer IdFuncionario);
 }
