@@ -23,43 +23,35 @@ import br.com.fiap.DesafioRestFull.repository.CriterioRepository;
 @RestController
 @RequestMapping("criterioResource")
 public class CriterioResource {
-	
+
 	@Autowired
-    private CriterioRepository criterioRepository;
-	
-	 @GetMapping
-	    public List<Criterio> listar(){
-	        return criterioRepository.findAll();
-	    }
+	private CriterioRepository criterioRepository;
 
-	    @GetMapping("{id}")
-	    public Criterio buscar(@PathVariable Integer id){
-	        return criterioRepository.findById(id).get();
-	    }
-	    
-	    @GetMapping("{id}/{processoSeletivo}")
-	    public Criterio buscarporchave(@PathVariable Integer id, @PathVariable ProcessoSeletivo processo){
-	        return criterioRepository.findByIdAndProcessoSeletivo(id, processo);
-	    }
-	    
-	    @ResponseStatus(code = HttpStatus.CREATED)
-	    @PostMapping
-	    public Criterio cadastrar(@RequestBody Criterio criterio){
-	        return criterioRepository.save(criterio);
-	    }
+	@GetMapping
+	public List<Criterio> listar() {
+		return criterioRepository.findAll();
+	}
 
-	    @PutMapping("{id}/{processoSeletivo}")
-	    public Criterio atuliza(@RequestBody Criterio criterio, @PathVariable Integer id, @PathVariable ProcessoSeletivo processo){
-	        criterio.setId(id);
-	        criterio.setProcessoSeletivo(processo);
-	        return criterioRepository.save(criterio);
-	    }
+	@GetMapping("{id}")
+	public Criterio buscar(@PathVariable Integer id) {
+		return criterioRepository.findById(id).get();
+	}
 
-	    @DeleteMapping("{id}/{processoSeletivo}")
-	    public void excluir(@PathVariable Integer id, @PathVariable ProcessoSeletivo processo){
-	    	Criterio criterio = buscarporchave(id, processo);
-	        criterioRepository.delete(criterio);
-	    }
-	    
-	    
+	@ResponseStatus(code = HttpStatus.CREATED)
+	@PostMapping
+	public Criterio cadastrar(@RequestBody Criterio criterio) {
+		return criterioRepository.save(criterio);
+	}
+
+	@PutMapping("{id}")
+	public Criterio atuliza(@RequestBody Criterio criterio, @PathVariable Integer id) {
+		criterio.setId(id);
+		return criterioRepository.save(criterio);
+	}
+
+	@DeleteMapping("{id}")
+	public void excluir(@PathVariable Integer id) {
+		criterioRepository.deleteById(id);
+	}
+
 }
