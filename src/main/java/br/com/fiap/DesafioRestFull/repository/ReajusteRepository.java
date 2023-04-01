@@ -12,5 +12,4 @@ public interface ReajusteRepository extends JpaRepository<Reajuste, Integer> {
     List<Reajuste> findByHolerite(Holerite holerite);
     List<Reajuste> findByNome(String nome);
     List<Reajuste> findByValorGreaterThan(Double valor);
-
 }

@@ -2,16 +2,21 @@ package br.com.fiap.DesafioRestFull.controller;
 
 import br.com.fiap.DesafioRestFull.model.Holerite;
 import br.com.fiap.DesafioRestFull.model.Reajuste;
+import br.com.fiap.DesafioRestFull.repository.HoleriteRepository;
 import br.com.fiap.DesafioRestFull.repository.ReajusteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("reajuste")
 public class ReajusteResource {
+	
+    @Autowired
+    private HoleriteRepository holeriteRepository;
 
     @Autowired
     private ReajusteRepository reajusteRepository;
@@ -24,11 +29,6 @@ public class ReajusteResource {
     @GetMapping("{id}/{holerite}")
     public Reajuste buscarporchave(@PathVariable Integer id, @PathVariable Holerite holerite){
         return reajusteRepository.findByIdAndHolerite(id, holerite);
-    }
-
-    @GetMapping("holerite")
-    public List<Reajuste> buscarporholerite(@RequestParam Holerite holerite){
-        return reajusteRepository.findByHolerite(holerite);
     }
 
     @GetMapping("nome")

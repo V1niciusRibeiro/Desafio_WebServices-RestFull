@@ -1,6 +1,7 @@
 package br.com.fiap.DesafioRestFull.model;
 
 import java.util.Calendar;
+
 import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -17,6 +18,7 @@ import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+
 
 @Entity
 @Table(name = "TB_PROCESSO_SELETIVO")
@@ -40,76 +42,53 @@ public class ProcessoSeletivo {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "Dt_Fim")
     private Calendar dtFim;
+
+    //@OneToMany(mappedBy = "processoSeletivo")
+    //private List<Criterio> criterios;
     
-   
-    @OneToMany(mappedBy = "processoSeletivo")
-    private List<Criterio> criterios;
-
-
 	public ProcessoSeletivo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-
-	public ProcessoSeletivo(Integer idProcessoSeletivo, String nomeProcesso, Calendar dtIni, Calendar dtFim,
-			List<Criterio> criterios) {
+	public ProcessoSeletivo(Integer idProcessoSeletivo, String nomeProcesso, Calendar dtIni, Calendar dtFim) {
 		super();
 		this.idProcessoSeletivo = idProcessoSeletivo;
 		this.nomeProcesso = nomeProcesso;
 		this.dtIni = dtIni;
 		this.dtFim = dtFim;
-		this.criterios = criterios;
 	}
-
 
 	public Integer getIdProcessoSeletivo() {
 		return idProcessoSeletivo;
 	}
 
-
 	public void setIdProcessoSeletivo(Integer idProcessoSeletivo) {
 		this.idProcessoSeletivo = idProcessoSeletivo;
 	}
-
 
 	public String getNomeProcesso() {
 		return nomeProcesso;
 	}
 
-
 	public void setNomeProcesso(String nomeProcesso) {
 		this.nomeProcesso = nomeProcesso;
 	}
-
 
 	public Calendar getDtIni() {
 		return dtIni;
 	}
 
-
 	public void setDtIni(Calendar dtIni) {
 		this.dtIni = dtIni;
 	}
-
 
 	public Calendar getDtFim() {
 		return dtFim;
 	}
 
-
 	public void setDtFim(Calendar dtFim) {
 		this.dtFim = dtFim;
-	}
-
-
-	public List<Criterio> getCriterios() {
-		return criterios;
-	}
-
-
-	public void setCriterios(List<Criterio> criterios) {
-		this.criterios = criterios;
 	}
     
 }
