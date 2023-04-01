@@ -28,6 +28,8 @@ public class ProcessoSeletivo {
     @Column(name = "Id_Processo")
     private Integer idProcessoSeletivo;
 
+	@Column(name = "Nome_Processo")
+	private String nomeProcesso;
  
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
@@ -40,26 +42,56 @@ public class ProcessoSeletivo {
     private Calendar dtFim;
     
    
-    @OneToMany(mappedBy = "processoSeletivo", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "processoSeletivo")
     private List<Criterio> criterios;
 
-	public Integer getId() {
+
+	public ProcessoSeletivo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public ProcessoSeletivo(Integer idProcessoSeletivo, String nomeProcesso, Calendar dtIni, Calendar dtFim,
+			List<Criterio> criterios) {
+		super();
+		this.idProcessoSeletivo = idProcessoSeletivo;
+		this.nomeProcesso = nomeProcesso;
+		this.dtIni = dtIni;
+		this.dtFim = dtFim;
+		this.criterios = criterios;
+	}
+
+
+	public Integer getIdProcessoSeletivo() {
 		return idProcessoSeletivo;
 	}
 
-	public void setId(Integer id) {
-		this.idProcessoSeletivo = id;
+
+	public void setIdProcessoSeletivo(Integer idProcessoSeletivo) {
+		this.idProcessoSeletivo = idProcessoSeletivo;
 	}
 
+
+	public String getNomeProcesso() {
+		return nomeProcesso;
+	}
+
+
+	public void setNomeProcesso(String nomeProcesso) {
+		this.nomeProcesso = nomeProcesso;
+	}
 
 
 	public Calendar getDtIni() {
 		return dtIni;
 	}
 
+
 	public void setDtIni(Calendar dtIni) {
 		this.dtIni = dtIni;
 	}
+
 
 	public Calendar getDtFim() {
 		return dtFim;
@@ -70,26 +102,14 @@ public class ProcessoSeletivo {
 		this.dtFim = dtFim;
 	}
 
-	
+
 	public List<Criterio> getCriterios() {
 		return criterios;
 	}
 
+
 	public void setCriterios(List<Criterio> criterios) {
 		this.criterios = criterios;
 	}
-
-	public ProcessoSeletivo(Integer idProcessoSeletivo, Calendar dtIni, Calendar dtFim, List<Criterio> criterios) {
-		super();
-		this.idProcessoSeletivo = idProcessoSeletivo;
-		this.dtIni = dtIni;
-		this.dtFim = dtFim;
-		this.criterios = criterios;
-	}
-	
-	public ProcessoSeletivo() {}
-
-
     
-		
 }

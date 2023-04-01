@@ -33,7 +33,7 @@ public class ProcessoSeletivoResource {
   
     @GetMapping("periodo")
     public List<ProcessoSeletivo> buscaporperiodo(@RequestParam Calendar start, @RequestParam Calendar end){
-        return ProcessoSeletivoRepository.findByDataGreaterThanEqualAndDataLessThanEqual(start,end);
+        return ProcessoSeletivoRepository.findByDtIniGreaterThanEqualAndDtFimLessThanEqual(start,end);
     }
     
     @GetMapping
@@ -55,7 +55,7 @@ public class ProcessoSeletivoResource {
 
     @PutMapping("{id}")
     public ProcessoSeletivo atualizar(@RequestBody ProcessoSeletivo processo, @PathVariable Integer id){
-    	processo.setId(id);
+    	processo.setIdProcessoSeletivo(id);
         return ProcessoSeletivoRepository.save(processo);
     }
 
