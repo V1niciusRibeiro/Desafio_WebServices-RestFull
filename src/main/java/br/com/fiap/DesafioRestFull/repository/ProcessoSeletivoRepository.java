@@ -13,7 +13,6 @@ import br.com.fiap.DesafioRestFull.model.ProcessoSeletivo;
 @Repository
 public interface ProcessoSeletivoRepository extends JpaRepository<ProcessoSeletivo, Integer> {
 		
-	List<ProcessoSeletivo> findByProcesso(ProcessoSeletivo processo);
-	List<ProcessoSeletivo> findByIdProcesso(Integer idProcesso);
-	List<ProcessoSeletivo> findByDataGreaterThanEqualAndDataLessThanEqual(Calendar Start, Calendar End);	
+	List<ProcessoSeletivo> findByidProcessoSeletivo(Integer idProcesso);
+	List<ProcessoSeletivo> findByDtIniGreaterThanEqualAndDtFimLessThanEqual(Calendar Start, Calendar End);	
 }

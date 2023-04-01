@@ -21,7 +21,7 @@ import br.com.fiap.DesafioRestFull.model.ProcessoSeletivo;
 import br.com.fiap.DesafioRestFull.repository.CriterioRepository;
 
 @RestController
-@RequestMapping("criterioresource")
+@RequestMapping("criterioResource")
 public class CriterioResource {
 	
 	@Autowired
@@ -39,7 +39,7 @@ public class CriterioResource {
 	    
 	    @GetMapping("{id}/{processoSeletivo}")
 	    public Criterio buscarporchave(@PathVariable Integer id, @PathVariable ProcessoSeletivo processo){
-	        return criterioRepository.findByIdAndProcesso(id, processo);
+	        return criterioRepository.findByIdAndProcessoSeletivo(id, processo);
 	    }
 	    
 	    @ResponseStatus(code = HttpStatus.CREATED)
